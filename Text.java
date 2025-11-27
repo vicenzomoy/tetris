@@ -18,7 +18,8 @@ public class Text extends Actor
         getImage().drawString(text, 20,20);
     }
     public void update(String text){
-        
+        getImage().clear();
+        getImage().drawString(text, 20,20);
     }
     public void act() 
     {

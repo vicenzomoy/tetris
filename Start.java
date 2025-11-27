@@ -17,6 +17,7 @@ public class Start extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(18, 22, 16, false);
+        setBackground("startbackground.png");
         for(int i = 0; i < 18; i++){
             for(int j = 15; j < 22; j++){
                 Tile t = new Tile();
@@ -24,8 +25,13 @@ public class Start extends World
                 addObject(t, i , j);
             }
         }
+        if(Grid.music.isPlaying()){
+            Grid.music.stop();
+        }
     }
     public void act(){
-        
+        if(Greenfoot.isKeyDown("Enter")){
+            Greenfoot.setWorld(new Grid());
+        }
     }
 }

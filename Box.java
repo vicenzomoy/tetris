@@ -20,7 +20,11 @@ public class Box extends Actor
         getImage().drawString(label, 18, 15);
     }
     public void setPiece(int type){
-        
+        getImage().clear();
+        setImage("box.png");
+        getImage().setColor(Color.WHITE);
+        getImage().drawString(label, 18, 15);
+        getImage().drawImage(new GreenfootImage(type+"_piece.png"),10, 20);
     }
     public void act() 
     {
