@@ -183,11 +183,6 @@ public class Grid extends World
                 lockDelay = 0;
             }
         }
-        
-        /*
-         * 
-        
-         */
     }
     private int clamp(int value, int low, int high){
         if(value < low){
@@ -334,8 +329,6 @@ public class Grid extends World
                 Greenfoot.setWorld(new GameOver(score));
             }
         }
-            
-        //printGrid();
         
         switch(combo){
             case 1:
@@ -360,7 +353,7 @@ public class Grid extends World
     }
     public Tile getPooledTile(){
         for(int i = 0; i < garbagePool.size(); i++){
-            if(!getObjects(null).contains(garbagePool.get(i))){//check if the tile is already added to the world
+            if(!getObjects(null).contains(garbagePool.get(i))){ //check if the tile is already added to the world
                 return garbagePool.get(i);
             }
         }
@@ -377,12 +370,9 @@ public class Grid extends World
         }
     }
     private void rotatePiece(boolean cw, boolean offset){
-        
         int oldRotIndex = rotationIndex;
         rotationIndex += cw ? 1:-1;
         rotationIndex = (rotationIndex % 4 + 4) % 4;
-        
-        //System.out.println("Rotation (" + oldRotIndex + ", " + rotationIndex +")");
         
         Vector center = new Vector(tiles[0].getX(), tiles[0].getY());
         for(int i = 1; i < 4; i++){
@@ -397,10 +387,6 @@ public class Grid extends World
             rotatePiece(!cw, false);
         }
         updateGhost();
-        /*
-        
-        
-        */
     }
     private boolean canOffset(int oldRotation, int newRotation){
         Vector[][] offsetData;
@@ -426,7 +412,6 @@ public class Grid extends World
                 break;
             }
         }
-        //System.out.println(end.toString());
         if(canMove){
             moveTile(end);
         }
@@ -458,7 +443,6 @@ public class Grid extends World
         lockDelay = 0;
     }
     private void spawnPiece(int type){
-        //System.out.println(type);
         Vector spawnPos = spawnPosition;
         while(getObjectsAt(spawnPos.x,spawnPos.y, Tile.class).size() > 0){
             spawnPos = spawnPos.add(Vector.Up);
