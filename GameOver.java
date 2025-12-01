@@ -28,10 +28,9 @@ public class GameOver extends World
         setBackground("game_over.png");
         if(Grid.music.isPlaying()){
             Grid.music.stop();
+            gameOver.setVolume(30);
+            gameOver.play();
         }
-
-        gameOver.setVolume(30);
-        gameOver.play();
     }
     
     public void act(){
